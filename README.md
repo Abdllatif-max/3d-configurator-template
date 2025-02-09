@@ -1,6 +1,10 @@
 # 3D Product Configurator
 
 ## 📌 Overview
+
+![Preview](screenshots/1.png)
+
+
 The **3D Configurator** is a web-based tool designed to allow users to **interactively customize** and **visualize** products in real-time. It is built using **Three.js** for 3D rendering, **TailwindCSS** for styling, and JavaScript for interactivity.
 
 With the rise of **e-commerce and online shopping**, businesses are shifting towards **customized product experiences** where users can personalize items before purchasing. This project serves as a foundation for integrating **3D visualization** into **online stores** and **product showcase platforms**.
