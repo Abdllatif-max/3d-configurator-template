@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-![Preview](screenshots/1.png)
+![Preview](screenshots/2.png)
 
 
 The **3D Configurator** is a web-based tool designed to allow users to **interactively customize** and **visualize** products in real-time. It is built using **Three.js** for 3D rendering, **TailwindCSS** for styling, and JavaScript for interactivity.
