@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Configurator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+
+<body class="m-0 overflow-hidden flex flex-col h-screen bg-white">
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="bg-[#EAF1FB] p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Left: Logo -->
+            <div class="flex items-center text-3xl font-bold">
+                COMPANY
+            </div>
+
+            <!-- Right: Cart & Account Icons -->
+            <div class="flex items-center gap-6">
+                <!-- Cart Icon with Counter -->
+                <div class="relative">
+                    <button class="p-2 rounded-full hover:bg-gray-200 transition relative">
+                        <!-- Shopping Bag Icon (Most Familiar for Cart) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-7 h-7 text-gray-700">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8 7V6a4 4 0 118 0v1m2 0a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h12z" />
+                        </svg>
+
+                        <!-- Product Counter Badge (Well Positioned) -->
+                        <span id="cartCount"
+                            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+                            0
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Account Icon -->
+                <button class="p-2 rounded-full hover:bg-gray-200 transition">
+                    <!-- User Circle Icon (Familiar for Account/Profile) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-7 h-7 text-gray-700">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 14c4.418 0 8 1.79 8 4v2H4v-2c0-2.21 3.582-4 8-4z" />
+                        <circle cx="12" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="flex h-full">
+        <!-- Left Sidebar (Scrollable Theme Selection) -->
+        <!-- Left Sidebar (Vertical Scrollable Theme Selection) -->
+        <div class="w-1/5 bg-[#EAF1FB] p-6 flex flex-col items-center justify-start">
+            <h3 class="text-xl font-semibold mb-4">Product 3D configurator</h3>
+            <!-- Scrollable Container -->
+            <div class="w-full h-96 overflow-y-auto scrollbar-hide flex flex-col gap-3 p-2">
+                <p> 3D Product Configurator
+                    Description: The details will be provided here.
+                </p>
+            </div>
+        </div>
+
+        <!-- 3D Canvas -->
+        <div id="container" class="w-3/5 relative"></div>
+
+        <!-- Right Sidebar (Color Picker) -->
+        <!-- Sidebar (Colors + Text Input + Button) -->
+        <div class="w-1/5 p-4 flex flex-col items-center justify-start bg-[#EAF1FB]">
+            <!-- Title -->
+            <h3 class="text-lg font-semibold mb-3">Select Color</h3>
+
+            <!-- Color Circles -->
+            <div class="flex flex-wrap gap-3 justify-center mb-6">
+                <!-- Row 1 -->
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-red-500 hover:scale-110 transition"
+                    onclick="changeColor(0xff0000)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-green-500 hover:scale-110 transition"
+                    onclick="changeColor(0x00ff00)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-blue-500 hover:scale-110 transition"
+                    onclick="changeColor(0x0000ff)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-yellow-400 hover:scale-110 transition"
+                    onclick="changeColor(0xffff00)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-purple-500 hover:scale-110 transition"
+                    onclick="changeColor(0x800080)"></div>
+
+                <!-- Row 2 -->
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-orange-500 hover:scale-110 transition"
+                    onclick="changeColor(0xffa500)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-pink-500 hover:scale-110 transition"
+                    onclick="changeColor(0xff1493)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-teal-500 hover:scale-110 transition"
+                    onclick="changeColor(0x008080)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-gray-500 hover:scale-110 transition"
+                    onclick="changeColor(0x808080)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-black hover:scale-110 transition"
+                    onclick="changeColor(0x000000)"></div>
+
+                <!-- Row 3 -->
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-white hover:scale-110 transition"
+                    onclick="changeColor(0xffffff)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-indigo-500 hover:scale-110 transition"
+                    onclick="changeColor(0x4b0082)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-lime-500 hover:scale-110 transition"
+                    onclick="changeColor(0x00ff00)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-cyan-500 hover:scale-110 transition"
+                    onclick="changeColor(0x00ffff)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-amber-500 hover:scale-110 transition"
+                    onclick="changeColor(0xffc107)"></div>
+
+                <!-- Row 4 -->
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-rose-500 hover:scale-110 transition"
+                    onclick="changeColor(0xff007f)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-blue-300 hover:scale-110 transition"
+                    onclick="changeColor(0x87ceeb)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-emerald-500 hover:scale-110 transition"
+                    onclick="changeColor(0x50c878)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-brown-500 hover:scale-110 transition"
+                    onclick="changeColor(0x8b4513)"></div>
+                <div class="w-10 h-10 rounded-full border border-black cursor-pointer bg-fuchsia-500 hover:scale-110 transition"
+                    onclick="changeColor(0xff00ff)"></div>
+            </div>
+
+            <!-- Text Input and Button -->
+            <div class="w-full flex flex-col items-center mt-5">
+                <h3 class="text-lg font-semibold mb-3">Enter Text</h3>
+                <input type="text" id="textInput" placeholder="Type here..."
+                    class="w-full p-2 text-md rounded border border-gray-400 mb-3" />
+                <button onclick="updateText()"
+                    class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="flex justify-between items-center p-5 bg-gray-800 text-white fixed bottom-0 w-full">
+        <!-- Left Side: Product Title -->
+        <div class="text-lg font-bold">
+            PRICE: 32.25$
+        </div>
+
+        <!-- Right Side: Buttons -->
+        <div class="flex gap-4 items-center ml-auto pr-8">
+            <button
+                class="bg-green-600 text-white px-6 py-3 text-lg rounded-lg flex items-center gap-2 hover:bg-green-700 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 3h2l1 6m1 6h13M5 9h14l1 6H6m5 5a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+                Add to Cart
+            </button>
+
+            <button
+                class="bg-orange-500 text-white px-6 py-3 text-lg rounded-lg flex items-center gap-2 hover:bg-orange-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2 7h20M2 11h20M5 15h2m4 0h8" />
+                    <rect x="2" y="5" width="20" height="14" rx="2" ry="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                Proceed to Payment
+            </button>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+
+</html>
