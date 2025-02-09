@@ -79,5 +79,4 @@ This project is **open-source** and available under the **MIT License**.
 
 ## 📬 Contact
 For inquiries or collaborations, contact:  
-📧 Email: `your-email@example.com`  
-🌐 GitHub: [your-github-profile](https://github.com/your-username)  
+📧 Email: `mkafhb@gmail.com`
