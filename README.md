@@ -1,6 +1,6 @@
 # 3D Product Configurator
 
-## 📌 Overview
+## Overview
 
 ![Preview](screenshots/2.png)
 
@@ -11,7 +11,7 @@ With the rise of **e-commerce and online shopping**, businesses are shifting tow
 
 ---
 
-## 🎯 Key Features
+## Key Features
 1. **3D Product Display** 🛍️  
    - Allows customers to see the product from **all angles**.  
    - Uses **OrbitControls** for zooming and rotating.  
@@ -38,7 +38,7 @@ With the rise of **e-commerce and online shopping**, businesses are shifting tow
 
 ---
 
-## 🚀 Potential Use Cases
+## Potential Use Cases
 ### 1️⃣ E-Commerce Platforms
 - **Customizable products** such as T-shirts, shoes, jewelry, and furniture.  
 - Customers can preview changes **before purchasing**.  
@@ -61,7 +61,7 @@ With the rise of **e-commerce and online shopping**, businesses are shifting tow
 
 ---
 
-## 📌 Technologies Used
+## Technologies Used
 | Technology   | Purpose |
 |-------------|------------------------------------------------|
 | **Three.js**  | 3D rendering and model handling |
@@ -72,11 +72,11 @@ With the rise of **e-commerce and online shopping**, businesses are shifting tow
 
 ---
 
-## 📜 License
+## License
 This project is **open-source** and available under the **MIT License**.
 
 ---
 
-## 📬 Contact
+## Contact
 For inquiries or collaborations, contact:  
 📧 Email: `mkafhb@gmail.com`
